@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>MFNHS Research Center</title>
+	<!-- Add the favicon -->
+	<link rel="icon" type="image/x-icon" href="img/TheCenterFavIcon.png">
+	<!-- font Awesome CDN link -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+
+	<!-- External CSS -->
+	<link rel="stylesheet" href="style.css">
+	
+
+	<!-- JQuery CDN link -->
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+</head>
+<body>
+	<!-- Navigation start -->
+	<nav>
+		<img src="img/The Center Logo .png" class="logo" alt="">
+
+		<div class="navigation">
+			<ul>
+				<i id="menu-close" class="fas fa-times"></i>
+				<li><a href="index.html" class="active">The Center</a></li>
+				<li><a href="about.html">About Us</a></li>
+				<li><a href="research.html">Research</a></li>
+				<li><a href="upload.html">Upload</a></li>
+			</ul>
+
+			<img src="img/menu.png" id="menu-btn" alt="">
+		</div>
+	</nav>
+	<!-- Navigation ends -->
+
+
+	<!-- Hero section starts from here -->
+	<section id="about-home">
+		<h2>
+			Courses
+		</h2>
+		
+	</section>
+	<!-- Hero section ends from here -->
+
+		<!-- Courses section starts from here -->
+	<section id="formupload">
+		<h1>Upload and Share Your Research</h1>
+		<p>Replenish man have thing gathering lights yielding shall you</p>
+
+		<form id="uploadForm" enctype="multipart/form-data">
+			<input type="text" name="title" placeholder="Title (Title Case only)" required pattern="^(?![A-Z\s]+$).+">
+				  <textarea name="abstract" placeholder="Short background information about the research" required></textarea>
+			<input type="text" name="keywords" placeholder="Keywords (separated by commas)" required>
+				  <select name="area" required>
+						<option value="">-- Select Research Area --</option>
+						<option>Life Science</option>
+						<option>Physical Science</option>
+						<option>Math and Computational Science</option>
+						<option>Robotics and Intelligent Machine</option>
+						<option>Science Innovation Expo</option>
+						<option>Arduino Embedded Systems</option>
+						<option>Aeronautics Research</option>
+				  </select>
+				  
+						<label>Select Research Paper (PDF only):</label>
+				  <input type="file" name="pdf" accept="application/pdf" required>
+					<textarea name="message" placeholder="Message to the Editor or Reviewer (optional)"></textarea>
+				  <input type="text" name="authors" placeholder="Author's Name(s), separated by commas" required>
+				  <input type="text" name="emailadd" placeholder="Email Adress" required>
+			
+				  <select name="country" id="country" required>
+						<option value="">-- Select Country --</option>
+				  </select>
+						
+						<input type="text" name="address" placeholder="Complete Address" required>
+					<label>
+						<input type="checkbox" required> I certify this is original work and agree to the research submission policy.
+					</label>
+						<button type="submit">Submit</button>
+			</form>
+	</section>
+	<!-- Courses section ends from here -->
+
+	<!-- Footer section starts from here -->
+	<footer>
+		<div class="footer-col">
+			<h3><a href="https://www.facebook.com/profile.php?id=61566322543509" target="_blank">NanoNova Robotics Club</a></h3>
+			<!--<li>Manage Reputation</li>
+			<li>Power Tools</li>
+			<li>Managed Website</li>
+			<li>Marketing Service</li>-->
+		</div>
+
+		<div class="footer-col">
+			<h3><a href="https://www.facebook.com/profile.php?id=61568667508879" target="_blank">Starter-Byte ICT Club</a></h3>
+			<!--<li>Jobs</li>
+			<li>Marketing Service</li>
+			<li>Top Products</li>
+			<li>Manage Reputation</li>-->
+		</div>
+
+		<div class="footer-col">
+			<h3><a href="https://www.facebook.com/profile.php?id=61577252848389" target="_blank">IPEd Cultural Club</a></h3>
+			<!--<li>Managed Website</li>
+			<li>Manage Reputation</li>
+			<li>Top Products</li>
+			<li>Marketing Service</li>-->
+		</div>
+
+		<div class="footer-col">
+			<h3><a href="https://www.facebook.com/ManoloFortichNHSOfficial/" target="_blank">Manolo Fortich NHS</a></h3>
+			<!--<li>Research</li>
+			<li>Experts</li>
+			<li>Managed Website</li>
+			<li>Marketing Service</li>-->
+		</div>
+
+		<div class="footer-col">
+			<h3><a href="#" target="_blank">The Senior High</a></h3>
+		</div>
+
+		<div class="copyright">
+			<p>
+				Copyright @ 2025 All rights reserved
+			</p>
+			<div class="pro-links">
+				<i class="fab fa-facebook"></i>
+				<i class="fab fa-instagram"></i>
+				<i class="fab fa-linkedin-in"></i>
+			</div>
+		</div>
+	</footer>
+	<!-- Footer section ends from here -->
+
+	<script>
+		// Show menu links on burger click
+		$('#menu-btn').click(function(){
+			$('nav .navigation ul').addClass('active')
+		});
+
+		// Hide navbar on click function
+		$('#menu-close').click(function(){
+			$('nav .navigation ul').removeClass('active')
+		});
+		// Show menu links on burger click
+	</script>
+	
+	
+	<script src="script.js">
+	// Script for file upload
+	</script>
+	
+	<script>
+		  const countries = [
+			"Afghanistan", "Albania", "Algeria", "Andorra", "Angola", "Argentina", "Armenia", "Australia", "Austria", "Azerbaijan",
+			"Bahamas", "Bahrain", "Bangladesh", "Barbados", "Belarus", "Belgium", "Belize", "Benin", "Bhutan", "Bolivia",
+			"Bosnia and Herzegovina", "Botswana", "Brazil", "Brunei", "Bulgaria", "Burkina Faso", "Burundi",
+			"Cambodia", "Cameroon", "Canada", "Cape Verde", "Central African Republic", "Chad", "Chile", "China", "Colombia", "Comoros",
+			"Costa Rica", "Croatia", "Cuba", "Cyprus", "Czech Republic", "Denmark", "Djibouti", "Dominica", "Dominican Republic",
+			"Ecuador", "Egypt", "El Salvador", "Equatorial Guinea", "Eritrea", "Estonia", "Eswatini", "Ethiopia",
+			"Fiji", "Finland", "France",
+			"Gabon", "Gambia", "Georgia", "Germany", "Ghana", "Greece", "Grenada", "Guatemala", "Guinea", "Guyana",
+			"Haiti", "Honduras", "Hungary",
+			"Iceland", "India", "Indonesia", "Iran", "Iraq", "Ireland", "Israel", "Italy",
+			"Jamaica", "Japan", "Jordan",
+			"Kazakhstan", "Kenya", "Kiribati", "Kuwait", "Kyrgyzstan",
+			"Laos", "Latvia", "Lebanon", "Lesotho", "Liberia", "Libya", "Liechtenstein", "Lithuania", "Luxembourg",
+			"Madagascar", "Malawi", "Malaysia", "Maldives", "Mali", "Malta", "Marshall Islands", "Mauritania", "Mauritius", "Mexico",
+			"Micronesia", "Moldova", "Monaco", "Mongolia", "Montenegro", "Morocco", "Mozambique", "Myanmar (Burma)",
+			"Namibia", "Nauru", "Nepal", "Netherlands", "New Zealand", "Nicaragua", "Niger", "Nigeria", "North Korea", "North Macedonia", "Norway",
+			"Oman",
+			"Pakistan", "Palau", "Panama", "Papua New Guinea", "Paraguay", "Peru", "Philippines", "Poland", "Portugal",
+			"Qatar",
+			"Romania", "Russia", "Rwanda",
+			"Saint Kitts and Nevis", "Saint Lucia", "Saint Vincent and the Grenadines", "Samoa", "San Marino", "Saudi Arabia", "Senegal", "Serbia", "Seychelles", "Sierra Leone", "Singapore", "Slovakia", "Slovenia", "Solomon Islands", "Somalia", "South Africa", "South Korea", "South Sudan", "Spain", "Sri Lanka", "Sudan", "Suriname", "Sweden", "Switzerland", "Syria",
+			"Taiwan", "Tajikistan", "Tanzania", "Thailand", "Timor-Leste", "Togo", "Tonga", "Trinidad and Tobago", "Tunisia", "Turkey", "Turkmenistan", "Tuvalu",
+			"Uganda", "Ukraine", "United Arab Emirates", "United Kingdom", "United States", "Uruguay", "Uzbekistan",
+			"Vanuatu", "Vatican City", "Venezuela", "Vietnam",
+			"Yemen",
+			"Zambia", "Zimbabwe"
+		  ];
+
+		  const countrySelect = document.getElementById("country");
+
+		  countries.sort().forEach(country => {
+			const option = document.createElement("option");
+			option.value = country;
+			option.textContent = country;
+			countrySelect.appendChild(option);
+		  });
+	</script>
+	
+	<!-- Pop-ups after clicking Submit -->
+	<div id="uploadPopup" style="display: none;" class="popup-overlay">
+		<div class="popup-content">
+			<h3>Please wait...</h3>
+			<p>We're uploading your research paper. This may take a minute. Please do not close the window.</p>
+		</div>
+	</div>
+
+	<script>
+		<!-- Pop-ups script -->
+			document.getElementById("uploadForm").addEventListener("submit", function (e) {
+			// Show popup immediately
+			document.getElementById("uploadPopup").style.display = "flex";
+
+		// Optional: simulate delay for testing only
+		// setTimeout(() => this.submit(), 2000); // Only if you want to delay
+		});
+	</script>
+</body>
+</html>
