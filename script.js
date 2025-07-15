@@ -20,7 +20,7 @@ document.getElementById('uploadForm').addEventListener('submit', async function 
     payload.append('area', form.area.value);
     payload.append('message', form.message.value || '');
     payload.append('authors', form.authors.value);
-	payload.append('authors', form.emailadd.value);
+    payload.append('emailadd', form.emailadd.value);
     payload.append('country', form.country.value);
     payload.append('address', form.address.value);
     payload.append('fileName', file.name);
