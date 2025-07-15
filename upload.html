@@ -211,5 +211,32 @@
 		// setTimeout(() => this.submit(), 2000); // Only if you want to delay
 		});
 	</script>
+
+	<script>
+			//Prevent Right Click / Context Menu
+		  document.addEventListener('contextmenu', function (e) {
+			e.preventDefault();
+		  });
+	</script>
+
+	<script>
+		  document.addEventListener('keydown', function (e) {
+			// Disable Ctrl+S and Ctrl+U
+			if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 's') {
+			  e.preventDefault();
+			  alert("Saving this page is disabled.");
+			}
+
+			// Ctrl+U = View source
+			if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'u') {
+			  e.preventDefault();
+			}
+
+			// F12 = Dev tools
+			if (e.keyCode === 123) {
+			  e.preventDefault();
+			}
+		  });
+	</script>
 </body>
 </html>
