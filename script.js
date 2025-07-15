@@ -26,7 +26,7 @@ document.getElementById('uploadForm').addEventListener('submit', async function 
     payload.append('fileName', file.name);
     payload.append('fileData', base64);
 
-    const response = await fetch('https://script.google.com/macros/s/AKfycbw_4ZuKb0AzPrMm72uI_a2vxdbV46GR9x6LB0505nVxyimBcP67F8qrktVv9V2rpoMx/exec', {
+    const response = await fetch('https://script.google.com/macros/s/AKfycby-08O3oZ7cXgYNJdrCkqZnyRiV1ABj1mSs1PxR-SjJofZltWgbcYqMZwlvJfuGUlph/exec', {
       method: 'POST',
       body: payload
     });
