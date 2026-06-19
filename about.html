@@ -4,24 +4,89 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>MFNHS Research Center</title>
-	<!-- Add the favicon -->
 	<link rel="icon" type="image/x-icon" href="img/TheCenterFavIcon.png">
-
-	<!-- font Awesome CDN link -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
-
-	<!-- External CSS -->
 	<link rel="stylesheet" href="style.css">
 	<link rel="stylesheet" href="about.css">
-
-	<!-- JQuery CDN link -->
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+	<style>
+		/* ---- Carousel styles ---- */
+		.carousel-wrapper {
+			position: relative;
+			width: 100%;
+			overflow: hidden;
+			border-radius: 10px;
+		}
+
+		.carousel-track {
+			display: flex;
+			transition: transform 0.5s ease-in-out;
+		}
+
+		.carousel-track img {
+			min-width: 100%;
+			width: 100%;
+			height: auto;
+			object-fit: cover;
+			border-radius: 10px;
+			display: block;
+		}
+
+		.carousel-btn {
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+			background: rgba(22, 94, 80, 0.75);
+			color: #fff;
+			border: none;
+			padding: 12px 16px;
+			font-size: 1.3rem;
+			cursor: pointer;
+			border-radius: 50%;
+			z-index: 10;
+			transition: background 0.3s ease;
+			line-height: 1;
+		}
+
+		.carousel-btn:hover {
+			background: rgba(22, 94, 80, 1);
+		}
+
+		.carousel-btn.prev {
+			left: 10px;
+		}
+
+		.carousel-btn.next {
+			right: 10px;
+		}
+
+		.carousel-dots {
+			display: flex;
+			justify-content: center;
+			gap: 8px;
+			margin-top: 12px;
+		}
+
+		.carousel-dots span {
+			width: 10px;
+			height: 10px;
+			border-radius: 50%;
+			background: #ccc;
+			cursor: pointer;
+			transition: background 0.3s ease;
+			display: inline-block;
+		}
+
+		.carousel-dots span.active {
+			background: rgb(22, 94, 80);
+		}
+	</style>
 </head>
 <body>
 	<!-- Navigation start -->
 	<nav>
 		<img src="img/The Center Logo .png" class="logo" alt="">
-
 		<div class="navigation">
 			<ul>
 				<i id="menu-close" class="fas fa-times"></i>
@@ -30,31 +95,44 @@
 				<li><a href="research.html">Research</a></li>
 				<li><a href="upload.html">Upload</a></li>
 			</ul>
-
 			<img src="img/menu.png" id="menu-btn" alt="">
 		</div>
 	</nav>
 	<!-- Navigation ends -->
 
-
-	<!-- Hero section starts from here -->
+	<!-- Hero section -->
 	<section id="about-home">
-		<h2>
-			School Community Experts
-		</h2>
+		<h2>School Community Experts</h2>
 	</section>
-	<!-- Hero section ends from here -->
 
-
-	<!-- About section starts from here -->
+	<!-- About section -->
 	<section id="about-container">
 		<div class="about-img">
-			<img id="facultyZoom" src="img/FACULTY PROFILE 4 x8.jpg" alt="MFNHS Faculty"><div id="zoomResult" class="img-zoom-result"></div>
+			<!-- Carousel replaces the single faculty photo -->
+			<div class="carousel-wrapper">
+				<div class="carousel-track" id="carouselTrack">
+					<img src="img/FACULTY PROFILE 4 x8.jpg" alt="MFNHS Faculty Photo">
+					<!-- Add more images below as needed -->
+					<img src="img/1.png" alt="MFNHS Faculty Photo 1">
+					<img src="img/2.png" alt="MFNHS Faculty Photo 2">
+					<img src="img/3.png" alt="MFNHS Faculty Photo 3">
+					<img src="img/4.png" alt="MFNHS Faculty Photo 4">
+					<img src="img/5.png" alt="MFNHS Faculty Photo 5">
+					<img src="img/6.png" alt="MFNHS Faculty Photo 6">
+					<img src="img/7.png" alt="MFNHS Faculty Photo 7">
+					<img src="img/8.png" alt="MFNHS Faculty Photo 8">
+					<img src="img/9.png" alt="MFNHS Faculty Photo 9">
+					<img src="img/10.png" alt="MFNHS Faculty Photo 10">
+					<img src="img/11.png" alt="MFNHS Faculty Photo 11">
+				</div>
+				<button class="carousel-btn prev" id="prevBtn" aria-label="Previous slide">&#8592;</button>
+				<button class="carousel-btn next" id="nextBtn" aria-label="Next slide">&#8594;</button>
+			</div>
+			<div class="carousel-dots" id="carouselDots"></div>
 		</div>
+
 		<div class="about-text">
-			<h2>
-				Guiding the Future with Wisdom and Experience
-			</h2>
+			<h2>Guiding the Future with Wisdom and Experience</h2>
 			<p>
 				Our School Community Experts are passionate mentors, educators, and field specialists who guide students in the development of their research projects. They serve as research advisers, content reviewers, and ethical stewards of the MFNHS Research Center.
 			</p>
@@ -63,60 +141,50 @@
 				<img src="img/trust (1).png" alt="">
 				<div class="fe-text">
 					<h5>Master Teachers and Subject Coordinators:</h5>
-					<p>
-						Providing direction in research formulation, relevance, and academic alignment.
-					</p>
+					<p>Providing direction in research formulation, relevance, and academic alignment.</p>
 				</div>
 			</div>
-			
+
 			<div class="about-fe">
 				<img src="img/trust (2).png" alt="">
 				<div class="fe-text">
 					<h5>ICT and STEM Advocates:</h5>
-					<p>
-						Ensuring that digital tools and technologies are properly integrated in student innovations.
-					</p>
+					<p>Ensuring that digital tools and technologies are properly integrated in student innovations.</p>
 				</div>
 			</div>
-			
+
 			<div class="about-fe">
 				<img src="img/trust (3).png" alt="">
 				<div class="fe-text">
 					<h5>Indigenous Knowledge Partners:</h5>
-					<p>
-						Encouraging cultural sensitivity and promoting local wisdom in research practices.
-					</p>
+					<p>Encouraging cultural sensitivity and promoting local wisdom in research practices.</p>
 				</div>
 			</div>
-			
+
 			<div class="about-fe">
 				<img src="img/trust (4).png" alt="">
 				<div class="fe-text">
 					<h5>Community-Based Experts:</h5>
-					<p>
-						Professionals from the LGU, NGOs, and partner industries who contribute practical insights and real-world context.
-					</p>
+					<p>Professionals from the LGU, NGOs, and partner industries who contribute practical insights and real-world context.</p>
 				</div>
 			</div>
-			
+
 			<div class="about-fe">
 				<img src="img/trust (5).png" alt="">
 				<div class="fe-text">
 					<h5>Role and Impact:</h5>
 					<p>
-						Validate student research quality and integrity
-						Inspire innovation aligned with community need
-						Promote collaboration between school and barangay
-						Uphold the mission of education for sustainable development
+						Validate student research quality and integrity.
+						Inspire innovation aligned with community need.
+						Promote collaboration between school and barangay.
+						Uphold the mission of education for sustainable development.
 					</p>
 				</div>
 			</div>
 		</div>
 	</section>
-	<!-- About section ends from here -->
 
-
-	<!-- Features section starts from here -->
+	<!-- Features section -->
 	<section id="features">
 		<h1>💬 Why Are They Important?</h1>
 		<p>Without the School Community Experts, the MFNHS Research Center would not reflect the rich diversity, wisdom, and evolving needs of our learners and communities. Their role ensures that research is not done in isolation—but with accountability, local grounding, and a mission to serve.</p>
@@ -125,35 +193,25 @@
 			<div class="fea-box">
 				<i class="fas fa-graduation-cap"></i>
 				<h3>Mentor</h3>
-				<p>
-					students through all stages of research, from ideation to implementation.
-				</p>
+				<p>students through all stages of research, from ideation to implementation.</p>
 			</div>
-
 			<div class="fea-box">
 				<i class="fa-solid fa-book-bookmark"></i>
-				<h3>Encourage </h3>
-				<p>
-					multi-disciplinary approaches across academic strands.
-				</p>
+				<h3>Encourage</h3>
+				<p>multi-disciplinary approaches across academic strands.</p>
 			</div>
-
 			<div class="fea-box">
 				<i class="fas fa-award"></i>
 				<h3>Support</h3>
-				<p>
-					innovation, especially those addressing social and environmental issues.
-				</p>
+				<p>innovation, especially those addressing social and environmental issues.</p>
 			</div>
 		</div>
 	</section>
-	<!-- Features section ends from here -->
 
-
-	<!-- Trust section starts from here -->
+	<!-- Trust section -->
 	<section id="trust">
 		<h1>Nurturing Young Researchers Through Guidance, Culture, and Real-World Insight</h1>
-		<p>“A student who is guided by the community grows not only in knowledge but in purpose."</p>
+		<p>"A student who is guided by the community grows not only in knowledge but in purpose."</p>
 		<div class="trust-img">
 			<img src="img/trust (1).png" alt="">
 			<img src="img/trust (2).png" alt="">
@@ -163,51 +221,26 @@
 			<img src="img/trust (6).png" alt="">
 		</div>
 	</section>
-	<!-- Trust section ends from here -->
 
-
-	<!-- Footer section starts from here -->
+	<!-- Footer -->
 	<footer>
 		<div class="footer-col">
 			<h3><a href="https://www.facebook.com/profile.php?id=61566322543509" target="_blank">NanoNova Robotics Club</a></h3>
-			<!--<li>Manage Reputation</li>
-			<li>Power Tools</li>
-			<li>Managed Website</li>
-			<li>Marketing Service</li>-->
 		</div>
-
 		<div class="footer-col">
 			<h3><a href="https://www.facebook.com/profile.php?id=61568667508879" target="_blank">Starter-Byte ICT Club</a></h3>
-			<!--<li>Jobs</li>
-			<li>Marketing Service</li>
-			<li>Top Products</li>
-			<li>Manage Reputation</li>-->
 		</div>
-
 		<div class="footer-col">
 			<h3><a href="https://www.facebook.com/profile.php?id=61577252848389" target="_blank">IPEd Cultural Club</a></h3>
-			<!--<li>Managed Website</li>
-			<li>Manage Reputation</li>
-			<li>Top Products</li>
-			<li>Marketing Service</li>-->
 		</div>
-
 		<div class="footer-col">
 			<h3><a href="https://www.facebook.com/ManoloFortichNHSOfficial/" target="_blank">Manolo Fortich NHS</a></h3>
-			<!--<li>Research</li>
-			<li>Experts</li>
-			<li>Managed Website</li>
-			<li>Marketing Service</li>-->
 		</div>
-
 		<div class="footer-col">
 			<h3><a href="#" target="_blank">The Senior High</a></h3>
 		</div>
-
 		<div class="copyright">
-			<p>
-				Copyright @ 2025 All rights reserved
-			</p>
+			<p>Copyright @ 2025 All rights reserved</p>
 			<div class="pro-links">
 				<i class="fab fa-facebook"></i>
 				<i class="fab fa-instagram"></i>
@@ -215,45 +248,72 @@
 			</div>
 		</div>
 	</footer>
-	<!-- Footer section ends from here -->
 
+	<!-- Scripts -->
 	<script>
-		// Show menu links on burger click
 		$('#menu-btn').click(function(){
-			$('nav .navigation ul').addClass('active')
+			$('nav .navigation ul').addClass('active');
 		});
-
-		// Hide navbar on click function
 		$('#menu-close').click(function(){
-			$('nav .navigation ul').removeClass('active')
+			$('nav .navigation ul').removeClass('active');
 		});
 	</script>
 
 	<script>
-			//Prevent Right Click / Context Menu
-		  document.addEventListener('contextmenu', function (e) {
-			e.preventDefault();
-		  });
+		document.addEventListener('contextmenu', function(e){ e.preventDefault(); });
 	</script>
 
 	<script>
-		  document.addEventListener('keydown', function (e) {
-			// Disable Ctrl+S and Ctrl+U
+		document.addEventListener('keydown', function(e){
 			if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 's') {
-			  e.preventDefault();
-			  alert("Saving this page is disabled.");
+				e.preventDefault();
+				alert("Saving this page is disabled.");
+			}
+			if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'u') { e.preventDefault(); }
+			if (e.keyCode === 123) { e.preventDefault(); }
+		});
+	</script>
+
+	<!-- Carousel Script -->
+	<script>
+		(function () {
+			const track = document.getElementById('carouselTrack');
+			const slides = track.querySelectorAll('img');
+			const dotsContainer = document.getElementById('carouselDots');
+			let current = 0;
+			const total = slides.length;
+
+			// Build dots
+			slides.forEach(function (_, i) {
+				const dot = document.createElement('span');
+				if (i === 0) dot.classList.add('active');
+				dot.addEventListener('click', function () { goTo(i); });
+				dotsContainer.appendChild(dot);
+			});
+
+			function updateDots() {
+				dotsContainer.querySelectorAll('span').forEach(function (d, i) {
+					d.classList.toggle('active', i === current);
+				});
 			}
 
-			// Ctrl+U = View source
-			if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'u') {
-			  e.preventDefault();
+			function goTo(index) {
+				current = (index + total) % total;
+				track.style.transform = 'translateX(-' + (current * 100) + '%)';
+				updateDots();
 			}
 
-			// F12 = Dev tools
-			if (e.keyCode === 123) {
-			  e.preventDefault();
-			}
-		  });
+			document.getElementById('prevBtn').addEventListener('click', function () {
+				goTo(current - 1);
+			});
+
+			document.getElementById('nextBtn').addEventListener('click', function () {
+				goTo(current + 1);
+			});
+
+			// Auto-play every 4 seconds
+			setInterval(function () { goTo(current + 1); }, 4000);
+		})();
 	</script>
 </body>
 </html>
